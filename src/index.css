@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/* Site UI fonts from Fontshare (Indian Type Foundry, free for commercial use), self-hosted in /public/fonts */
+@font-face {
+  font-family: 'Zodiak';
+  src: url('/fonts/zodiak-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Zodiak';
+  src: url('/fonts/zodiak-400-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Zodiak';
+  src: url('/fonts/zodiak-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Zodiak';
+  src: url('/fonts/zodiak-700-italic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-display: 'Zodiak', Georgia, serif;
+  --font-sans: 'Satoshi', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --color-ivory: #fbf8f3;
+  --color-cream: #f4ede2;
+  --color-ink: #1d1714;
+  --color-muted: #6f655d;
+  --color-brand: #7a1d5f;
+  --color-brand-dark: #5a1245;
+  --color-gold: #d4a23c;
+  --color-wa: #1fa855;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, #7a1d5f 0%, #c2185b 35%, #f08a24 70%, #e9b949 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer;
+}
+@utility btn-primary {
+  @apply btn bg-ink text-white hover:bg-brand-dark shadow-lg shadow-ink/15 hover:-translate-y-0.5 focus-visible:outline-ink;
+}
+@utility btn-brand {
+  @apply btn bg-brand text-white hover:bg-brand-dark shadow-lg shadow-brand/25 hover:-translate-y-0.5 focus-visible:outline-brand;
+}
+@utility btn-ghost {
+  @apply btn bg-white text-ink ring-1 ring-ink/10 hover:ring-ink/25 hover:-translate-y-0.5;
+}
+@utility btn-wa {
+  @apply btn bg-wa text-white hover:brightness-95 shadow-lg shadow-wa/25 hover:-translate-y-0.5 focus-visible:outline-wa;
+}
+
+@utility chip {
+  @apply rounded-full px-4 py-2 text-sm font-medium ring-1 ring-ink/10 bg-white text-ink/80 transition hover:ring-ink/30 cursor-pointer;
+}
+@utility chip-active {
+  @apply bg-ink text-white ring-ink;
+}
+
+.card-shadow { box-shadow: 0 1px 2px rgba(29,23,20,.04), 0 12px 32px -12px rgba(29,23,20,.18); }
+
+@keyframes float-a { 0%,100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-10px) rotate(-7deg); } }
+@keyframes float-b { 0%,100% { transform: translateY(0) rotate(7deg); } 50% { transform: translateY(-12px) rotate(8deg); } }
+@keyframes float-c { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.animate-float-a { animation: float-a 7s ease-in-out infinite; }
+.animate-float-b { animation: float-b 8s ease-in-out infinite; }
+.animate-float-c { animation: float-c 6s ease-in-out infinite; }
+.animate-fade-up { animation: fade-up .6s cubic-bezier(.2,.7,.2,1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
