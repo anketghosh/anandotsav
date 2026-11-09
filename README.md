@@ -111,7 +111,7 @@ Its templates, festival page and gallery entries are generated automatically. To
 
 ## Live site
 
-**https://anandotsav.netlify.app** (Netlify free plan, project `anandotsav`). This folder is linked to it, so publishing an update takes one command:
+**https://anandotsav.netlify.app** (Netlify free plan, project `anandotsav`). Netlify is connected to the GitHub repo [anketghosh/anandotsav](https://github.com/anketghosh/anandotsav). **Every push to `main` automatically rebuilds and publishes the site** in about a minute. Build settings are in `netlify.toml` (`npm run build`, publish `dist`, Node 22). To publish without pushing, you can still run:
 
 ```bash
 npm run build && npx netlify-cli deploy --prod --dir dist
